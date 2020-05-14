@@ -1,0 +1,162 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap");
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', sans-serif !important;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.gm-style-cc {
+  display: none !important;
+}
+
+.baloo-font {
+  font-family: 'Baloo Thambi 2', cursive;
+}
+
+.montserrat-font {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.smart-scroll {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1030;
+}
+
+.scrolled-down {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.scrolled-up {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+nav.navbar .feather {
+  height: 20px !important;
+  width: 20px !important;
+  margin-top: -5px;
+}
+
+nav.navbar input[type="search"] {
+  border: 0;
+}
+
+nav.navbar input[type="search"]::-webkit-input-placeholder {
+  opacity: 0.3;
+}
+
+nav.navbar input[type="search"]:-ms-input-placeholder {
+  opacity: 0.3;
+}
+
+nav.navbar input[type="search"]::-ms-input-placeholder {
+  opacity: 0.3;
+}
+
+nav.navbar input[type="search"]::placeholder {
+  opacity: 0.3;
+}
+
+nav.navbar .navbar-form {
+  flex-basis: -moz-available;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+nav.navbar .form-wrapper .form-footer {
+  text-align: left;
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+nav.navbar .avatar-menu:before,
+nav.navbar .search-menu:before {
+  position: absolute;
+  top: -9px;
+  right: 4px;
+  display: inline-block;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid #ccc;
+  border-left: 9px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  content: '';
+}
+
+nav.navbar .avatar-menu:after,
+nav.navbar .search-menu:after {
+  position: absolute;
+  top: -8px;
+  right: 5px;
+  display: inline-block;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+  border-left: 8px solid transparent;
+  content: '';
+}
+
+nav.navbar .avatar-menu {
+  padding: 8px 20px;
+  margin-top: 7px;
+  width: 256px;
+}
+
+nav.navbar .search-menu {
+  margin-top: 9px;
+}
+
+nav.navbar .search-menu:after {
+  left: 14px;
+  right: unset;
+}
+
+nav.navbar .search-menu:before {
+  left: 13px;
+  right: unset;
+}
+
+section.page-container .map {
+  background-color: white;
+  height: 505px;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+section.page-container .map .ol-attribution {
+  visibility: hidden;
+}
+
+section.page-container .borderless {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+section.page-container .borderless .card-title,
+section.page-container .borderless .card-text {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+section.page-container .maxheight {
+  height: auto;
+  max-height: 100%;
+  overflow-y: hidden;
+}
+
+footer .logo-footer {
+  height: 38px;
+  width: 38px;
+}
+/*# sourceMappingURL=main.css.map */

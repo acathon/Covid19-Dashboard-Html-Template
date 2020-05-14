@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzZuTh6WYReaHm-8yA9LG5WW4JTLhUWh0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>Tunisia | Dashboard</title>
+</head>
+
+<body class="bg-light pt-0">
+
+    <div class="alert alert-warning rounded-0 d-block w-100 mb-0" role="alert">
+        <div class="container">
+            <strong>Wash your hands</strong> with soap and water, and dry them thoroughly!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
+    <header class="bg-dark sticky-top smart-scroll">
+        <nav class="container navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="/" class="navbar-brand font-weight-bold text-uppercase montserrat-font">
+                <i data-feather="codesandbox"></i>
+                Corona<span class="font-weight-light">SandBox</span></a>
+            <form class=" form-inline my-2 my-lg-0 navbar-form">
+                <div class="input-group input-group-search mx-auto w-75">
+                    <div class="input-group-prepend dropdown">
+                        <button id="search-btn" class="btn btn-light dropdown-toggle border-right-0 rounded-0"
+                            type="button" value="default" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i data-feather="menu"></i> Tunisia
+                        </button>
+                        <div id="search-dropdown"
+                            class="dropdown-menu dropdown-menu-left search-menu rounded-0 border-top" role="menu">
+                            <a href="#" class="dropdown-item">Tunisia</a>
+                            <div class="dropdown-divider" role="separator"></div>
+                            <a href="#" class="dropdown-item">Phone</a>
+                            <a href="#" class="dropdown-item">Case</a>
+                            <a href="#" class="dropdown-item">Region</a>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control bg-white border-0" placeholder="Search" aria-label="search"
+                        aria-describedby="search-button-addon">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary rounded-0 border-left-0" type="submit"
+                            id="search-button-addon"><i data-feather="search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-nowrap">
+                            <i data-feather="bell"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link text-nowrap dropdown-toggle" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i data-feather="user"></i>
+                            Sign In
+                        </a>
+                        <div class="avatar-menu dropdown-menu form-wrapper dropdown-menu-right rounded-0"
+                            aria-labelledby="navbarDropdown">
+                            <form action="#">
+                                <div class="form-group mt-3">
+                                    <label for="email">Email Address:</label>
+                                    <input type="text" class="form-control form-control-sm" required id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control form-control-sm" required id="password">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Remember Me</label>
+                                </div>
+                                <button type="submit" class="btn btn-outline-primary btn-block btn-sm mt-3">Let
+                                    Me
+                                    In</button>
+                                <div class="form-footer pb-3">
+                                    <a href="#">Forgot Your Password?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-container my-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6 col-xs mb-3">
+                    <div id="map" class="map rounded shadow-sm"></div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-5 col-sm col-xs mb-3">
+
+                    <div class="card border-0 rounded-0 mb-2">
+                        <div class="card-body pb-2">
+                            <h4 class="card-title font-weight-bold mb-0">Total Cases</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Thu 2, 11:21 PM</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">553</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 rounded-0 mb-2">
+                        <div class="card-body pb-2">
+                            <h4 class="card-title font-weight-bold mb-0">Total Recovery</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Thu 2, 11:21 PM</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body pb-2">
+                            <h4 class="card-title font-weight-bold mb-0">Total Deaths</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Thu 2, 11:21 PM</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">19</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body borderless">
+                            <h4 class="card-title font-weight-bold mb-0">All Cases Timeline</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">From last 14 days</p>
+                            <div class="d-flex justify-content-between">
+                                <canvas id="confirmedChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body borderless">
+                            <h4 class="card-title font-weight-bold mb-0">Recovery</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">From last 14 days</p>
+                            <div class="d-flex justify-content-between">
+                                <canvas id="recoveredChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body borderless">
+                            <h4 class="card-title font-weight-bold mb-0">Deaths</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">From last 14 days</p>
+                            <div class="d-flex justify-content-between">
+                                <canvas id="deathsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold mb-0">Analysis</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Clinical specimens</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">6485</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold mb-0">Test Rate</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Positive test rate</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">8.53%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold mb-0">Hospitalized</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Inpatient</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">39</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-md-4 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold mb-0">Indigenous</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Confirmed Cases</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">316</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-md-4 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold mb-0">Imported</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Confirmed Cases</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">176</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-md-4 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold mb-0">Medical Staff</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Confirmed Cases</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">44</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-md-4 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold mb-0">Investigation</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Under investigation</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">61</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-6 col-md-4 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold mb-0">Passengers</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Returned to Tunisia</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">19174</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-md-4 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold mb-0">Completed</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Complete their period</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">18666</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-md-6 col-sm-6 col-xs">
+                    <div class="card border-0 rounded-0 mb-3 ">
+                        <div class="card-body ">
+                            <h4 class="card-title font-weight-bold mb-0">Monitoring</h4>
+                            <p class="card-text text-secondary mb-0 font-weight-light">Currently</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="display-4 align-self-end">508</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-none">
+            <div class="row mt-5">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h4 class="card-title font-weight-bold mb-0">Governorate</h4>
+                    <p class="card-text text-secondary mb-0 font-weight-light">
+                        Distribution of confirmed and deaths cases</p>
+                    <div class="card border-0 rounded-0 mb-3 maxheight">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between" id="style-3">
+                                <canvas id="regionsChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3 d-none">
+                <div class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-xs">
+                    <h4 class="card-title font-weight-bold mb-0">Transmission</h4>
+                    <p class="card-text text-secondary mb-0 font-weight-light">From starting day</p>
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <canvas id="contamination"></canvas>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-xs">
+                    <h4 class="card-title font-weight-bold mb-0">Gender</h4>
+                    <p class="card-text text-secondary mb-0 font-weight-light">Percentage of contaminated
+                        patients</p>
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <canvas id="gender"></canvas>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-light mt-5 p-3">
+    </footer>
+
+    <sub>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
+        <script src="js/main.js"></script>
+        <script src="js/gmap.js"></script>
+        <script src="js/linechart-confirmed.js"></script>
+        <script src="js/linechart-death.js"></script>
+        <script src="js/linechart-recovery.js"></script>
+        <script src="js/doughnutchart-transmission.js"></script>
+        <script src="js/piechart-gender.js"></script>
+        <script src="js/barchart-regions.js"></script>
+    </sub>
+
+</body>
+
+</html>
